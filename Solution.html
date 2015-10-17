@@ -1,0 +1,185 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01  
+Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"> 
+<html lang="en"> 
+<head> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<title>Conversions</title> 
+
+<style>
+
+</style>
+
+<script type="text/javascript"> 
+
+function number_1(){ 
+ document.getElementById("hidden").style.display="block";
+ 
+ document.getElementById("showtext1").innerHTML="";
+ document.getElementById("showtext2").innerHTML="";
+ document.getElementById("showtext3").innerHTML="";
+ document.getElementById("showtext4").innerHTML="";
+ document.getElementById("showtext4c").innerHTML="";
+ document.getElementById("showtext4e").innerHTML="";
+ document.getElementById("showtext4z").innerHTML="";
+ document.getElementById("errorMessage").innerHTML="";
+ 
+ var number1 = parseFloat(document.getElementById("input1").value); 
+ var array1 = [number1];
+ var array2 = [number1];
+ var array3 = [number1];
+ var array4 = [number1];
+ var array5 = [number1];
+ 
+
+ var result = "";
+ var result2 = "";
+ var result3 = "";
+ var result4 = "";
+ var resultc = "";
+ var resulte = "";
+ var resultz = "";
+ var result5 = "";
+ 
+ 
+ 
+ if(number1 % 1 != 0){
+	 document.getElementById("hidden").style.display="none";
+	 document.getElementById("errorMessage").innerHTML="Please input whole number only";
+ 	return;
+	
+ }else if(number1 < 0){
+	 	 //document.getElementById("resultbox").value=0;
+		 document.getElementById("hidden").style.display="none";
+		 document.getElementById("errorMessage").innerHTML="Negative number is invalid";
+		 return;
+ }else if(number1 > 0){
+		for(var x=0;x<=number1;x++){
+				array1[x] = x;
+				//document.writeln(array1[x]);
+				result = result + " " + array1[x];
+		}
+		for(var x=0;x<=number1;x++){
+				array2[x] = x;
+				
+				if(array2[x] % 2 != 0){
+					result2 = result2 + " " + array2[x];
+					
+				}
+				
+			
+		}
+		
+		
+		for(var x=0;x<=number1;x++){
+				array3[x] = x;
+				
+				if(array2[x] % 2 == 0){
+					result3 = result3 + " " + array3[x];
+				}
+			
+		}
+		
+		for(var x=0;x<=number1;x++){
+				array4[x] = x;
+				var r = 0;
+				
+				if(array4[x] % 3 == 0 && array4[x] != 0){
+					resultc = resultc + " " + array4[x];
+					r++;
+				}
+				
+				if(array4[x] % 5 == 0 && array4[x] != 0){
+					resulte = resulte + " " + array4[x];
+					r++;
+				}
+				
+				if(array4[x] % 5 == 0 && array4[x] % 3 == 0 && array4[x] !=0){
+					resultz = resultz + " " + array4[x];
+					r++;
+				}
+				
+				if(r == 0){
+					result4 = result4 + " " + array4[x];
+				}
+			
+		}
+		var a = 0;
+		var b = 1;
+		var fibo = 0;
+		for(var x=2;x<=number1;x++){
+					
+			fibo = a+b;
+			a = b;
+			b = fibo;
+			
+			if(fibo<=number1){
+			result5 = result5 + " " + fibo;	
+			}
+			
+		}
+		
+		
+		
+	
+		document.getElementById("showtext1").innerHTML= result;
+		document.getElementById("showtext2").innerHTML= result2;
+		document.getElementById("showtext3").innerHTML= result3;
+		document.getElementById("showtext4").innerHTML= result4;
+		document.getElementById("showtext4c").innerHTML= resultc;
+		document.getElementById("showtext4e").innerHTML= resulte;
+		document.getElementById("showtext4z").innerHTML= resultz;
+		document.getElementById("showtext5").innerHTML= result5;
+		
+		return;
+ }
+ 
+
+} 
+
+</script> 
+</head> 
+<body> 
+
+<h2>Sequence 1</h2><br> 
+<p>Please enter a number and click <em>Sequence 1</em> button to start the sequence.</p>
+<input type="text" name="myresultbox" id="input1" placeholder="put some number">
+<input value="Sequence 1" onclick="number_1()" type="button"> 
+<br/>
+<span id="errorMessage"></span>
+<div id="hidden" style="display:none;">
+<br/>
+<p>All numbers up to and including the number entered :</p>
+<span id="showtext1"></span>
+<br/>
+<br/>
+<p>All odd numbers up to and including the number entered :</p>
+<span id="showtext2"></span>
+<br/>
+<br/>
+<p>All even numbers up to and including the number entered :</p>
+<span id="showtext3"></span>
+<br/>
+<br/>
+<p>All numbers up to and including the number entered, except when:
+
+A number is a multiple of 3, and when, A number is a multiple of 5, A number is a multiple of both 3 and 5 :</p>
+<span id="showtext4"></span>
+<br/>
+<br/>
+<p>Output C (multiple of 3) :</p>
+<span id="showtext4c"></span>
+<br/>
+<br/>
+<p>Output E (multiple of 5) :</p>
+<span id="showtext4e"></span>
+<br/>
+<br/>
+<p>Output Z (both multiple of 3 and 5) :</p>
+<span id="showtext4z"></span>
+<br/>
+<br/>
+<p>All fibonacci number up to and including the number entered :</p>
+<span id="showtext5"></span>
+</div>
+</body> 
+</html>  
